@@ -46,11 +46,11 @@
       </button>
     </div> -->
 
-    <div id="chart-timeline">
+    <div id="chart-timeline" class="chart-container">
       <apexchart
         type="area"
-        height="300"
-        width="800"
+        height="100%"
+        width="100%"
         ref="chart"
         :options="chartOptions"
         :series="series"
@@ -70,12 +70,6 @@ import { ref, computed } from 'vue'
 import ApexCharts from 'apexcharts'
 
 const defaultTemperature = 22
-const defaultValue = {
-  scr: 16,
-  fcr: 18,
-  sfr: 14,
-  mort: 15
-}
 const temperature = ref(defaultTemperature)
 
 const toDigit = (value) => {
@@ -217,26 +211,26 @@ const chartOptions = ref({
 <style scoped>
 .water-container {
   border: gray solid;
-  border-radius: 10px;
-  padding: 10px 20px;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 10px;
 }
 
 .temperature-container {
   border: gray solid;
-  border-radius: 10px;
-  padding: 10px 20px;
-  font-size: 30px;
+  border-radius: 8px;
+  padding: 5px 8px;
+  font-size: 10px;
 }
 
 .container {
   display: flex;
   justify-content: space-around;
-  width: 800;
   margin-top: 20px;
 }
 
 .alert {
-  background-color: red !important ;
+  background-color: red !important;
 }
 
 .safe {
@@ -253,14 +247,109 @@ const chartOptions = ref({
 }
 
 .status-container {
-  font-size: 30px;
   display: flex;
   align-items: center;
   margin-bottom: 30px;
   margin-left: 50px;
+  font-size: 10px;
 }
 
 .top-container {
   display: flex;
+}
+
+@media (min-width: 600px) {
+  .chart-container,
+  .container {
+    width: 600px;
+  }
+
+  .temperature-container {
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+
+  .water-container {
+    border-radius: 10px;
+    padding: 10px 20px;
+  }
+
+  .temperature-container,
+  .status-container {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  .chart-container,
+  .container {
+    width: 900px;
+  }
+
+  .temperature-container,
+  .status-container,
+  .container {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .chart-container,
+  .container {
+    width: 1200px;
+  }
+
+  .temperature-container,
+  .status-container {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .chart-container,
+  .container {
+    width: 1500px;
+  }
+
+  .temperature-container,
+  .status-container {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .chart-container,
+  .container {
+    width: 1800px;
+  }
+
+  .temperature-container,
+  .status-container {
+    font-size: 30px;
+  }
+}
+
+@media (min-height: 300px) {
+  .chart-container {
+    height: 250px;
+  }
+}
+
+@media (min-height: 600px) {
+  .chart-container {
+    height: 400px;
+  }
+}
+
+@media (min-height: 900px) {
+  .chart-container {
+    height: 600px;
+  }
+}
+
+@media (min-height: 1200px) {
+  .chart-container {
+    height: 900px;
+  }
 }
 </style>
