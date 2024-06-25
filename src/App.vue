@@ -57,10 +57,30 @@
       ></apexchart>
     </div>
     <div class="container">
-      <div class="temperature-container">SGR: {{ sgrVal }} %</div>
-      <div class="temperature-container">FCR: {{ fcrVal }}</div>
-      <div class="temperature-container">SFR: {{ sfrVal }} %</div>
-      <div class="temperature-container">MORT: {{ mortVal }} %</div>
+      <div
+        class="temperature-container"
+        :class="[{ ' alert': mortVal > 40 }, { ' safe': mortVal < 20 }]"
+      >
+        <p class="temperature-font">SGR: {{ sgrVal }} %</p>
+      </div>
+      <div
+        class="temperature-container"
+        :class="[{ ' alert': mortVal > 40 }, { ' safe': mortVal < 20 }]"
+      >
+        <p class="temperature-font">FCR: {{ fcrVal }}</p>
+      </div>
+      <div
+        class="temperature-container"
+        :class="[{ ' alert': mortVal > 40 }, { ' safe': mortVal < 20 }]"
+      >
+        <p class="temperature-font">SFR: {{ sfrVal }} %</p>
+      </div>
+      <div
+        class="temperature-container"
+        :class="[{ ' alert': mortVal > 40 }, { ' safe': mortVal < 20 }]"
+      >
+        <p class="temperature-font">MORT: {{ mortVal }} %</p>
+      </div>
     </div>
   </div>
 </template>
@@ -267,6 +287,7 @@ const chartOptions = ref({
   .temperature-container {
     border-radius: 10px;
     padding: 10px 20px;
+    background-color: yellow;
   }
 
   .water-container {
@@ -351,5 +372,9 @@ const chartOptions = ref({
   .chart-container {
     height: 900px;
   }
+}
+
+.temperature-font {
+  color: black;
 }
 </style>
