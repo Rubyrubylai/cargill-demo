@@ -263,7 +263,7 @@ const chartOptions = ref({
   border-radius: 100px;
   padding: 20px 20px;
   margin-left: 10px;
-  background-color: yellow;
+  background-color: orange;
 }
 
 .status-container {
@@ -287,7 +287,7 @@ const chartOptions = ref({
   .temperature-container {
     border-radius: 10px;
     padding: 10px 20px;
-    background-color: yellow;
+    background-color: orange;
   }
 
   .water-container {
@@ -374,7 +374,19 @@ const chartOptions = ref({
   }
 }
 
+@media (min-height: 1500px) {
+  .chart-container {
+    height: 1200px;
+  }
+}
+
+@media (min-height: 1800px) {
+  .chart-container {
+    height: 1500px;
+  }
+}
+
 .temperature-font {
-  color: black;
+  color: white;
 }
 </style>
